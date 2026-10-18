@@ -1,3 +1,4 @@
+const { render } = require("ejs");
 const express = require("express");
 
 const router = express.Router();
@@ -56,4 +57,42 @@ router.post("/", (req,res) => {
     categorias.push(novaCategoria)
     res.redirect("/categorias")
 })
+
+router.get("/excluir/:id", (req, res) => {
+  let id = req.params.id;
+
+  for(let i in categorias) {
+    if(categorias[i].id == id){
+      categorias.splice(i, 1)
+    }
+  }
+  res.redirect("/categorias")
+})
+
+router.get("/editar/:id", (req, res) => {
+  let id = req.params.id;
+  let categoria = categorias.find(c => c.id == id);
+
+  res.render("categorias/editar", {categoria});
+
+//   res.render("/categorias/editar", {
+//     categoria: categorias[id]
+//   })
+});
+
+router.post("/editar/:id", (req, res) => {
+  let {nome, descricao} = req.body;
+  let id = req.params.id;
+
+  for(let i in categorias){
+    if(categorias[i].id == id){
+
+      categorias[i].nome = nome
+      categorias[i].descricao = descricao
+
+    }
+  }
+  res.redirect("/categorias")
+})
+
 module.exports = router;

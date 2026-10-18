@@ -31,6 +31,7 @@
                             <th>ID</th>
                             <th>Nome</th>
                             <th>Preço</th>
+                            <th>Opções</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,6 +40,10 @@
                             <td><%= mostrar.id %></td>
                             <td><%= mostrar.nome %></td>
                             <td><%= mostrar.preco %></td>
+                            <td>
+                                <a class="btn btn-warning btn-sm" href="/produtos/editar/<%= mostrar.id %>" onclick="return confirm('Deseja editar este produto?')">Editar</a>
+                                <a class="btn btn-danger btn-sm" href="/produtos/excluir/<%= mostrar.id %>" onclick="return confirm('Deseja excluir este produto?')">Excluir</a>
+                            </td>
                         </tr>
                         <% }) %>
                     </tbody>

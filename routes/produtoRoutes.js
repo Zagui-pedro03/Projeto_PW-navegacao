@@ -51,4 +51,39 @@ router.post("/", (req, res) => {
     res.redirect("/produtos")
 })
 
+router.get("/excluir/:id", (req, res) => {
+  let id = req.params.id;
+
+  for(let i in produtos) {
+    if(produtos[i].id == id){
+      produtos.splice(i, 1)
+    }
+  }
+  res.redirect("/produtos")
+})
+
+router.get("/editar/:id", (req, res) => {
+  let id = req.params.id;
+  let produto = produtos.find(c => c.id == id);
+
+  res.render("produtos/editar", {produto});
+
+
+});
+
+router.post("/editar/:id", (req, res) => {
+  let {nome, preco} = req.body;
+  let id = req.params.id;
+
+  for(let i in produtos){
+    if(produtos[i].id == id){
+
+      produtos[i].nome = nome
+      produtos[i].preco = Number(preco).toFixed(2)
+
+    }
+  }
+  res.redirect("/produtos")
+})
+
 module.exports = router;

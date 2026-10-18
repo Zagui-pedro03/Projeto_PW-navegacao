@@ -45,4 +45,39 @@ router.post("/", (req, res) => {
     res.redirect("/clientes")
 })
 
+router.get("/excluir/:id", (req, res) => {
+  let id = req.params.id;
+
+  for(let i in clientes) {
+    if(clientes[i].id == id){
+      clientes.splice(i, 1)
+    }
+  }
+  res.redirect("/clientes")
+})
+
+router.get("/editar/:id", (req, res) => {
+  let id = req.params.id;
+  let cliente = clientes.find(c => c.id == id);
+
+  res.render("clientes/editar", {cliente});
+
+});
+
+router.post("/editar/:id", (req, res) => {
+  let {nome, email} = req.body;
+  let id = req.params.id;
+
+  for(let i in clientes){
+    if(clientes[i].id == id){
+
+      clientes[i].nome = nome
+      clientes[i].email = email
+
+    }
+  }
+  res.redirect("/clientes")
+})
+
+
 module.exports = router;

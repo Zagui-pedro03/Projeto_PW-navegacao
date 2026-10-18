@@ -31,6 +31,7 @@
                             <th>ID</th>
                             <th>CNPJ</th>
                             <th>Email</th>
+                            <th>Opções</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,6 +40,10 @@
                             <td><%= mostrar.id %></td>
                             <td><%= mostrar.cnpj %></td>
                             <td><%= mostrar.email %></td>
+                            <td>
+                                <a class="btn btn-warning btn-sm" href="/fornecedores/editar/<%= mostrar.id %>" onclick="return confirm('Deseja editar este fornecedor?')">Editar</a>
+                                <a class="btn btn-danger btn-sm" href="/fornecedores/excluir/<%= mostrar.id %>" onclick="return confirm('Deseja excluir este fornecedor?')">Excluir</a>
+                            </td>
                         </tr>
                         <% }) %>
                     </tbody>

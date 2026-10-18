@@ -31,6 +31,7 @@
                             <th>ID</th>
                             <th>Nome</th>
                             <th>Descrição</th>
+                            <th>Opções</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -39,6 +40,10 @@
                             <td><%= mostrar.id %></td>
                             <td><%= mostrar.nome %></td>
                             <td><%= mostrar.descricao %></td>
+                            <td>
+                                <a class="btn btn-warning btn-sm" href="/categorias/editar/<%= mostrar.id %>" onclick="return confirm('Deseja editar esta categoria?')">Editar</a>
+                                <a class="btn btn-danger btn-sm" href="/categorias/excluir/<%= mostrar.id %>" onclick="return confirm('Deseja excluir esta categoria?')">Excluir</a>
+                            </td>
                         </tr>
                         <% }) %>
                     </tbody>
