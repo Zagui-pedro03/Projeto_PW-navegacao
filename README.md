@@ -7,11 +7,11 @@
 
 # Objetivo
 
-    Realizar o CRUD de Categorias, Clientes, Fornecedores e Produtos, onde é possível realizar cada etapa do CRUD (Create, Read, Update, Delete)
+Realizar o CRUD de Categorias, Clientes, Fornecedores e Produtos, onde é possível realizar cada etapa do CRUD (Create, Read, Update, Delete)
 
 # Estrutura de pastas
 
-''' text
+''' 
 meu-projeto/
 ├── data/
 │   ├── clientes.json
@@ -115,5 +115,5 @@ Foi adicionado a pasta 'data' e seus arquivos .JSON, foram excluídos todos os a
 
  # Ajustes feitos manualmente
 
-    Tirando a etapa de explicação da IA sobre como realizar a manipulação dos .JSON no arquivo de clientes, realizamos todo o resto (ou seja, todas as outras partes) sozinhos, sem escrita de IA.
+Tirando a etapa de explicação da IA sobre como realizar a manipulação dos .JSON no arquivo de clientes, realizamos todo o resto (ou seja, todas as outras partes) sozinhos, sem escrita de IA.
 
