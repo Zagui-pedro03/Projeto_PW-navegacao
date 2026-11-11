@@ -9,50 +9,45 @@
 
 Realizar o CRUD de Categorias, Clientes, Fornecedores e Produtos, onde é possível realizar cada etapa do CRUD (Create, Read, Update, Delete)
 
+
 # Estrutura de pastas
 
-
+```text
 meu-projeto/
 ├── data/
 │   ├── clientes.json
 │   ├── fornecedores.json
-│   └── funcionarios.json
-│   ├── produtos.json
-│
+│   ├── funcionarios.json
+│   └── produtos.json
 │
 ├── routes/
 │   ├── clientes.js
 │   ├── fornecedores.js
-│   └── funcionarios.js
+│   ├── funcionarios.js
 │   └── Produtos.js
 │
-views/
-├── categorias/
-│   ├── editar.ejs
-│   ├── form-cadastro.ejs
+├── views/
+│   ├── categorias/
+│   │   ├── editar.ejs
+│   │   ├── form-cadastro.ejs
+│   │   └── index.ejs
+│   ├── clientes/
+│   │   ├── editar.ejs
+│   │   ├── form-cadastro.ejs
+│   │   └── index.ejs
+│   ├── fornecedores/
+│   │   ├── editar.ejs
+│   │   ├── form-cadastro.ejs
+│   │   └── index.ejs
+│   ├── partials/
+│   │   ├── footer.ejs
+│   │   ├── header.ejs
+│   │   └── nav.ejs
+│   ├── produtos/
+│   │   ├── editar.ejs
+│   │   ├── form-cadastro.ejs
+│   │   └── index.ejs
 │   └── index.ejs
-│
-├── clientes/
-│   ├── editar.ejs
-│   ├── form-cadastro.ejs
-│   └── index.ejs
-│
-├── fornecedores/
-│   ├── editar.ejs
-│   ├── form-cadastro.ejs
-│   └── index.ejs
-│
-├── partials/
-│   ├── footer.ejs
-│   ├── header.ejs
-│   └── nav.ejs
-│
-├── produtos/
-│   ├── editar.ejs
-│   ├── form-cadastro.ejs
-│   └── index.ejs
-│
-└── index.ejs
 │
 ├── node_modules/
 ├── app.js
@@ -60,7 +55,7 @@ views/
 ├── .gitignore
 ├── package.json
 └── README.md
-
+```
 # Entidades Utilizadas
 
 O sistema possui quatro entidades principais:
