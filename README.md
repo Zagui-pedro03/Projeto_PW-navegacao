@@ -79,7 +79,7 @@ listagem, edição e exclusão de registros (CRUD).
 - JavaScript
 
 
-## Implementação dos .json com ChatGPT
+# Implementação dos .json com ChatGPT
 
 ## Prompt utilizado
 
