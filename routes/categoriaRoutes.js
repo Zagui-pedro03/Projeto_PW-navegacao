@@ -2,28 +2,30 @@ const { render } = require("ejs");
 const express = require("express");
 
 const router = express.Router();
+// ========================================
+// USANDO O ARQUIVO DO DATA/JSON
+// ========================================
+
+const fs = require("fs");
+const path = require("path");
+
+const caminho = path.join(
+  __dirname,
+  "..",
+  "data",
+  "categorias.json"
+)
+
+const conteudo = fs.readFileSync(caminho, "utf8")
+
+const categorias = JSON.parse(conteudo)
+
 
 // ========================================
 // DADOS
 // ========================================
 
-let categorias = [
-  {
-    id: 1,
-    nome: "Informática",
-    descricao: "Produtos e serviços de informática"
-  },
-  {
-    id: 2,
-    nome: "Eletrônicos",
-    descricao: "Produtos eletrônicos"
-  },
-  {
-    id: 3,
-    nome: "Roupas",
-    descricao: "Roupas e acessórios"
-  }
-];
+
 
 router.get("/", (req, res) => {
     res.render("categorias/index", {
@@ -41,7 +43,7 @@ router.get("/cadastro", (req,res) => {
 router.post("/", (req,res) => {
     const {nome, descricao} = req.body
 
-    if(nome === "" || descricao === ""){
+    if(nome.trim()  === "" || descricao.trim() === ""){
       return res.render("categorias/form-cadastro", {
         erro: "Preencha todos os campos"
       })
@@ -55,6 +57,12 @@ router.post("/", (req,res) => {
     }
 
     categorias.push(novaCategoria)
+
+    fs.writeFileSync(
+      caminho,
+      JSON.stringify(categorias,null, 2)
+    )
+
     res.redirect("/categorias")
 })
 
@@ -64,6 +72,11 @@ router.get("/excluir/:id", (req, res) => {
   for(let i in categorias) {
     if(categorias[i].id == id){
       categorias.splice(i, 1)
+
+      fs.writeFileSync(
+        caminho,
+        JSON.stringify(categorias,null, 2)
+      )
     }
   }
   res.redirect("/categorias")
@@ -90,6 +103,10 @@ router.post("/editar/:id", (req, res) => {
       categorias[i].nome = nome
       categorias[i].descricao = descricao
 
+      fs.writeFileSync(
+        caminho,
+        JSON.stringify(categorias, null, 2)
+      )
     }
   }
   res.redirect("/categorias")

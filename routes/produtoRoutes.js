@@ -1,18 +1,18 @@
 const express = require("express")
 const router = express.Router()
 
-const produtos = [
-    {
-        id: 1,
-        nome: "Celular",
-        preco: 840.50
-    }, 
-    {
-        id: 2,
-        nome: "estojo",
-        preco: 23.80
-    }
-]
+const fs = require("fs")
+const path = require("path")
+
+const caminho = path.join(
+    __dirname,
+    "..",
+    "data",
+    "produtos.json"
+)
+const conteudo = fs.readFileSync(caminho, "utf8")
+
+const produtos = JSON.parse(conteudo)
 
 router.get("/", (req, res) => {
     res.render("produtos/index",{
@@ -43,11 +43,15 @@ router.post("/", (req, res) => {
     let novoProduto = {
         id: produtos.length + 1,
         nome,
-        preco: Number(preco).toFixed(2)
+        preco: Number(preco).toFixed(2).replace(".",",")
     }
 
     produtos.push(novoProduto)
 
+    fs.writeFileSync(
+        caminho,
+        JSON.stringify(produtos,null, 2)
+    )
     res.redirect("/produtos")
 })
 
@@ -59,6 +63,10 @@ router.get("/excluir/:id", (req, res) => {
       produtos.splice(i, 1)
     }
   }
+  fs.writeFileSync(
+        caminho,
+        JSON.stringify(produtos,null, 2)
+    )
   res.redirect("/produtos")
 })
 
@@ -83,6 +91,10 @@ router.post("/editar/:id", (req, res) => {
 
     }
   }
+  fs.writeFileSync(
+        caminho,
+        JSON.stringify(produtos,null, 2)
+    )
   res.redirect("/produtos")
 })
 

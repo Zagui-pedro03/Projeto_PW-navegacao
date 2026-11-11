@@ -3,18 +3,18 @@ const router = express.Router();
 const {cnpj: cnpjValidate} = require("cpf-cnpj-validator");
 const res = require("express/lib/response");
 
-let fornecedores = [
-    {
-        id: 1,
-        cnpj: "25.546.722/0001-77",
-        email: "zaguipedro03@gmail.com"
-    },
-    {
-        id: 2,
-        cnpj: "14.513.979/0001-06",
-        email: "lucasacamargo2010@gmail.com"
-    }
-]
+const fs = require("fs")
+const path = require("path")
+
+const caminho = path.join(
+    __dirname,
+    "..",
+    "data",
+    "fornecedores.json"
+)
+const conteudo = fs.readFileSync(caminho, "utf8")
+
+const fornecedores = JSON.parse(conteudo)
 
 router.get("/", (req, res) => {
     res.render("fornecedores/index", {
@@ -51,6 +51,11 @@ router.post("/", (req, res) => {
     }
 
     fornecedores.push(novoFornecedor);
+
+    fs.writeFileSync(
+        caminho,
+        JSON.stringify(fornecedores,null,2)
+    )
     console.log(fornecedores);
     res.redirect("/fornecedores");
 })
@@ -63,6 +68,10 @@ router.get("/excluir/:id", (req, res) => {
       fornecedores.splice(i, 1)
     }
   }
+  fs.writeFileSync(
+        caminho,
+        JSON.stringify(fornecedores,null,2)
+    )
   res.redirect("/fornecedores")
 })
 
@@ -87,6 +96,10 @@ router.post("/editar/:id", (req, res) => {
 
     }
   }
+  fs.writeFileSync(
+        caminho,
+        JSON.stringify(fornecedores,null,2)
+    )
   res.redirect("/fornecedores")
 })
 

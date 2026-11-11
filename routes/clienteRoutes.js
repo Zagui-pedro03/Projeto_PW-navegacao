@@ -1,18 +1,20 @@
 const express = require("express");
 const router = express.Router();
 
-let clientes = [
-    {
-        id: 1,
-        nome: "Pedro",
-        email: "zaguipedro03@gmail.com"
-    },
-    {
-        id: 2,
-        nome: "Lucas",
-        email: "lucasacamargo2010@gmail.com"
-    }
-];
+const fs = require("fs")
+const path = require("path")
+
+const caminho = path.join(
+    __dirname,
+    "..",
+    "data",
+    "clientes.json"
+)
+const conteudo = fs.readFileSync(caminho, "utf8")
+
+const clientes = JSON.parse(conteudo)
+
+
 
 router.get("/", (req, res) => {
     res.render("clientes/index", {
@@ -29,7 +31,7 @@ router.get("/cadastro", (req, res) => {
 router.post("/", (req, res) => {
     const {nome, email} = req.body;
 
-    if(nome === "" || email === ""){
+    if(nome.trim() === "" || email.trim() === ""){
         return res.render("clientes/form-cadastro", {
             erro: "Preencha todos os campos!"
         })
@@ -42,6 +44,11 @@ router.post("/", (req, res) => {
     }
 
     clientes.push(novoCliente);
+
+    fs.writeFileSync(
+        caminho,
+        JSON.stringify(clientes, null, 2)
+    )
     res.redirect("/clientes")
 })
 
@@ -53,6 +60,10 @@ router.get("/excluir/:id", (req, res) => {
       clientes.splice(i, 1)
     }
   }
+  fs.writeFileSync(
+        caminho,
+        JSON.stringify(clientes, null, 2)
+    )
   res.redirect("/clientes")
 })
 
@@ -75,6 +86,10 @@ router.post("/editar/:id", (req, res) => {
       clientes[i].email = email
 
     }
+    fs.writeFileSync(
+        caminho,
+        JSON.stringify(clientes, null, 2)
+    )
   }
   res.redirect("/clientes")
 })
