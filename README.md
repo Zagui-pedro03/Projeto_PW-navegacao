@@ -12,7 +12,7 @@ Realizar o CRUD de Categorias, Clientes, Fornecedores e Produtos, onde é possí
 # Estrutura de pastas
 
 ``` text 
-meu-projeto/
+navegacao/
 ├── data/
 │   ├── clientes.json
 │   ├── fornecedores.json
