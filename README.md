@@ -11,7 +11,7 @@ Realizar o CRUD de Categorias, Clientes, Fornecedores e Produtos, onde é possí
 
 # Estrutura de pastas
 
-''' 
+``` text 
 meu-projeto/
 ├── data/
 │   ├── clientes.json
@@ -60,7 +60,7 @@ views/
 ├── .gitignore
 ├── package.json
 └── README.md
-'''
+```
 # Entidades Utilizadas
 
 O sistema possui quatro entidades principais:
