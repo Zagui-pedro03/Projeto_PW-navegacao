@@ -7,7 +7,7 @@
 
 # Objetivo
 
-    Realizar o CRUD de Categorias, Clientes, Fornecedores e Produtos, onde é possível realizar cada etapa do CRUD (Create, Read, Update, Delete)
+Realizar o CRUD de Categorias, Clientes, Fornecedores e Produtos, onde é possível realizar cada etapa do CRUD (Create, Read, Update, Delete)
 
 # Estrutura de pastas
 
@@ -88,7 +88,8 @@ listagem, edição e exclusão de registros (CRUD).
 
 # Prompt utilizado
 
-chat, tenho um projeto utilizando Node Express, e quero implementar arquivos .json para armazenar dados, me mostre como eu posso utilizá-los para armazenar utilizando Node.js e listando no EJS os dados
+chat, tenho um projeto utilizando Node Express, e quero implementar arquivos .json para armazenar dados, me mostre como eu posso utilizá-los para armazenar 
+utilizando Node.js e listando no EJS os dados
 
 # Resposta da IA
 
