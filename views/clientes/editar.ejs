@@ -1,55 +1,33 @@
-<%- include("../partials/header") %> 
+<%- include("../partials/header") %>
 <%- include("../partials/nav") %>
+<link rel="stylesheet" href="/css/formCliente.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-8 col-lg-6">
-      <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
-          <h4 class="mb-0">Editar Cliente</h4>
-        </div>
-
-        <div class="card-body">
-          <form action="" method="POST">
-            <div class="mb-3">
-              <label for="nome" class="form-label"> Nome </label>
-
-              <input
-                type="text"
-                class="form-control"
-                id="nome"
-                name="nome"
-                placeholder="Digite o nome"
-               value="<%= cliente.nome %>"
-              />
-            </div>
-
-            <div class="mb-3">
-              <label for="descricao" class="form-label"> Email </label>
-
-              <input
-              type="email"
-                class="form-control"
-                id="email"
-                name="email"
-                rows="4"
-                placeholder="Digite o email"
-                value="<%= cliente.email %>"
-                >
-              
-            </div>
-
-            <div class="d-flex gap-2">
-              <button type="submit" class="btn btn-success">Atualizar Cliente</button>
-
-              <a href="/clientes" class="btn btn-secondary"> Cancelar </a>
-            </div>
-          </form>
-        </div>
+<main class="cliente-container">
+  <div class="cliente-card">
+    <div class="cliente-header">
+      <div class="cliente-icon"><i class="bi bi-people"></i></div>
+      <div><h2>Editar Cliente</h2><p>Atualize as informações cadastradas</p></div>
+    </div>
+    <div class="cliente-body">
+      <form action="" method="POST">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="cliente-input" id="nome" name="nome" placeholder="Digite o nome do cliente" value="<%= cliente.nome %>" />
       </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="cliente-input" id="email" name="email" placeholder="Digite o email" value="<%= cliente.email %>" />
+      </div>
+
+        <div class="cliente-actions">
+          <a href="/clientes" class="btn-cancelar"><i class="bi bi-arrow-left"></i> Cancelar</a>
+          <button type="submit" class="btn-cadastrar"><i class="bi bi-check-lg"></i> Atualizar Cliente</button>
+        </div>
+      </form>
     </div>
   </div>
-</div>
-
+</main>
 
 <%- include("../partials/footer") %>

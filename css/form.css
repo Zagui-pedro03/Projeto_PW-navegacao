@@ -1,0 +1,188 @@
+ /* ===== Página de categorias ===== */
+
+.categoria-container {
+    min-height: 80vh;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: #f4f6f8;
+}
+
+/* Card principal */
+
+.categoria-card {
+    width: 100%;
+    max-width: 650px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+/* Cabeçalho */
+
+.categoria-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 28px 32px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.categoria-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #e8f5ed;
+    color: #198754;
+    border-radius: 12px;
+    font-size: 24px;
+}
+
+.categoria-header h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.categoria-header p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+/* Corpo do formulário */
+
+.categoria-body {
+    padding: 32px;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.required {
+    color: #dc3545;
+}
+
+.categoria-input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #1f2937;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.categoria-input::placeholder {
+    color: #9ca3af;
+}
+
+.categoria-input:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 3px rgba(25, 135, 84, 0.12);
+}
+
+.categoria-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+/* Botões */
+
+.categoria-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 24px;
+    border-top: 1px solid #eeeeee;
+}
+
+.btn-cancelar,
+.btn-cadastrar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-cancelar {
+    color: #4b5563;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+}
+
+.btn-cancelar:hover {
+    background: #f3f4f6;
+    color: #1f2937;
+}
+
+.btn-cadastrar {
+    color: #ffffff;
+    background: #198754;
+    border: 1px solid #198754;
+}
+
+.btn-cadastrar:hover {
+    background: #146c43;
+    border-color: #146c43;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(25, 135, 84, 0.2);
+}
+
+/* Responsividade */
+
+@media (max-width: 576px) {
+
+    .categoria-container {
+        padding: 25px 12px;
+    }
+
+    .categoria-header {
+        padding: 22px;
+    }
+
+    .categoria-body {
+        padding: 22px;
+    }
+
+    .categoria-actions {
+        flex-direction: column-reverse;
+    }
+
+    .btn-cancelar,
+    .btn-cadastrar {
+        width: 100%;
+    }
+
+}

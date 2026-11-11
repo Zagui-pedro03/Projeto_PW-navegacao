@@ -1,0 +1,391 @@
+/* ===== Listagem de categorias ===== */
+
+.categorias-container {
+    min-height: 80vh;
+    padding: 45px 25px;
+    background: #f4f6f8;
+}
+
+/* Cabeçalho */
+
+.categorias-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.categorias-titulo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.categorias-icon {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    background: #e8f5ed;
+    color: #198754;
+    border-radius: 12px;
+    font-size: 25px;
+}
+
+.categorias-titulo h2 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.categorias-titulo p {
+    margin: 6px 0 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* Botão nova categoria */
+
+.btn-nova-categoria {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    padding: 12px 18px;
+    border-radius: 9px;
+
+    background: #198754;
+    border: 1px solid #198754;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: all 0.2s ease;
+}
+
+.btn-nova-categoria:hover {
+    background: #146c43;
+    border-color: #146c43;
+    color: #ffffff;
+
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(25, 135, 84, 0.18);
+}
+
+/* Card principal */
+
+.categorias-card {
+    width: 100%;
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.035);
+}
+
+/* Cabeçalho do card */
+
+.categorias-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    padding: 24px 28px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.categorias-card-header h5 {
+    margin: 0;
+    color: #1f2937;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.categorias-card-header p {
+    margin: 6px 0 0;
+    color: #9ca3af;
+    font-size: 13px;
+}
+
+.categorias-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 8px 12px;
+
+    border-radius: 20px;
+    background: #e8f5ed;
+    color: #198754;
+
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Tabela */
+
+.categorias-table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.categorias-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+.categorias-table thead {
+    background: #f9fafb;
+}
+
+.categorias-table th {
+    padding: 16px 24px;
+
+    color: #6b7280;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+}
+
+.categorias-table td {
+    padding: 18px 24px;
+
+    color: #374151;
+    font-size: 14px;
+
+    border-bottom: 1px solid #f0f1f3;
+    vertical-align: middle;
+}
+
+.categorias-table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.categorias-table tbody tr:hover {
+    background: #f9fcfa;
+}
+
+.categorias-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.col-id {
+    width: 80px;
+}
+
+.col-acoes {
+    width: 220px;
+}
+
+/* ID */
+
+.categoria-id {
+    display: inline-block;
+
+    padding: 5px 9px;
+
+    background: #f3f4f6;
+    color: #6b7280;
+
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* Nome */
+
+.categoria-nome {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.categoria-nome-icon {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    background: #e8f5ed;
+    color: #198754;
+
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+/* Descrição */
+
+.categoria-descricao {
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+/* Botões de opções */
+
+.categoria-opcoes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-editar,
+.btn-excluir {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 8px 11px;
+
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: all 0.2s ease;
+}
+
+.btn-editar {
+    background: #e8f5ed;
+    color: #198754;
+    border: 1px solid #d1eadb;
+}
+
+.btn-editar:hover {
+    background: #198754;
+    color: #ffffff;
+}
+
+.btn-excluir {
+    background: #fff1f0;
+    color: #dc3545;
+    border: 1px solid #f5d0cd;
+}
+
+.btn-excluir:hover {
+    background: #dc3545;
+    color: #ffffff;
+}
+
+/* Rodapé */
+
+.categorias-card-footer {
+    padding: 16px 24px;
+
+    background: #fafafa;
+    border-top: 1px solid #eeeeee;
+
+    color: #9ca3af;
+    font-size: 12px;
+}
+
+.categorias-card-footer i {
+    margin-right: 5px;
+}
+
+/* Estado vazio */
+
+.categorias-vazio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    padding: 50px 20px;
+}
+
+.categorias-vazio > i {
+    font-size: 42px;
+    color: #9ca3af;
+    margin-bottom: 15px;
+}
+
+.categorias-vazio h5 {
+    color: #374151;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.categorias-vazio p {
+    max-width: 350px;
+    color: #9ca3af;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+
+    .categorias-container {
+        padding: 25px 15px;
+    }
+
+    .categorias-topo {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-nova-categoria {
+        width: 100%;
+    }
+
+    .categorias-card-header {
+        padding: 20px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .categorias-table th,
+    .categorias-table td {
+        padding: 14px 16px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .categorias-titulo h2 {
+        font-size: 21px;
+    }
+
+    .categorias-titulo p {
+        font-size: 12px;
+    }
+
+    .categoria-opcoes {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-editar,
+    .btn-excluir {
+        width: 100%;
+    }
+
+}

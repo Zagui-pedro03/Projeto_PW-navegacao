@@ -1,54 +1,36 @@
-<%- include("../partials/header") %> 
+<%- include("../partials/header") %>
 <%- include("../partials/nav") %>
+<link rel="stylesheet" href="/css/formProduto.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-8 col-lg-6">
-      <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
-          <h4 class="mb-0">Novo produto</h4>
-        </div>
-
-        <div class="card-body">
-          <form action="/produtos" method="POST">
-            <div class="mb-3">
-              <label for="nome" class="form-label"> Nome </label>
-
-              <input
-                type="text"
-                class="form-control"
-                id="nome"
-                name="nome"
-                placeholder="Digite o nome do produto"
-              />
-            </div>
-
-            <div class="mb-3">
-              <label for="preco" class="form-label"> Preço </label>
-
-              <input
-                class="form-control"
-                type="text"
-                id="preco"
-                name="preco"
-                placeholder="Digite o preço do produto"
-              >
-            </div>
-
-            <div class="d-flex gap-2">
-              <button type="submit" class="btn btn-success">Cadastrar</button>
-
-              <a href="/produtos" class="btn btn-secondary"> Cancelar </a>
-            </div>
-          </form>
-        </div>
+<main class="produto-container">
+  <div class="produto-card">
+    <div class="produto-header">
+      <div class="produto-icon"><i class="bi bi-box-seam"></i></div>
+      <div><h2>Novo Produto</h2><p>Preencha as informações para cadastrar</p></div>
+    </div>
+    <div class="produto-body">
+      <form action="/produtos" method="POST">
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="produto-input" id="nome" name="nome" placeholder="Digite o nome do produto" />
       </div>
+
+      <div class="form-group">
+        <label for="preco">Preço</label>
+        <input type="text" class="produto-input" id="preco" name="preco" placeholder="Digite o preço do produto" />
+      </div>
+
+        <div class="produto-actions">
+          <a href="/produtos" class="btn-cancelar"><i class="bi bi-arrow-left"></i> Cancelar</a>
+          <button type="submit" class="btn-cadastrar"><i class="bi bi-plus-lg"></i> Cadastrar produto</button>
+        </div>
+      </form>
     </div>
   </div>
-</div>
+</main>
 <% if (erro) { %>
-    <script>
-        alert("<%= erro %>");
-    </script>
+<script>alert("<%= erro %>");</script>
 <% } %>
+
 <%- include("../partials/footer") %>

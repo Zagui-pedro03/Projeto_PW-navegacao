@@ -1,12 +1,12 @@
 [
   {
-    "id": 1,
-    "nome": "Pedro Borges Zagui",
-    "email": "zaguipedro03@gmail.com"
-  },
-  {
     "id": 2,
     "nome": "Lucas Camargo",
     "email": "lucasacamargo2010@gmail.com"
+  },
+  {
+    "id": 2,
+    "nome": "Pedro Borges Zagui",
+    "email": "zaguipedro03@gmail.com"
   }
 ]

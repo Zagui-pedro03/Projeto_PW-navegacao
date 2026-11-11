@@ -1,55 +1,75 @@
-<%- include("../partials/header") %> 
-<%- include("../partials/nav") %>
+<%- include("../partials/header") %> <%- include("../partials/nav") %>
 
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-8 col-lg-6">
-      <div class="card shadow-sm">
-        <div class="card-header bg-primary text-white">
-          <h4 class="mb-0">Nova Categoria</h4>
-        </div>
+<link rel="stylesheet" href="/css/form.css" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+/>
 
-        <div class="card-body">
-          <form action="/categorias" method="POST">
-            <div class="mb-3">
-              <label for="nome" class="form-label"> Nome </label>
-
-              <input
-                type="text"
-                class="form-control"
-                id="nome"
-                name="nome"
-                placeholder="Digite o nome"
-              />
-            </div>
-
-            <div class="mb-3">
-              <label for="descricao" class="form-label"> Descrição </label>
-
-              <textarea
-                class="form-control"
-                id="descricao"
-                name="descricao"
-                rows="4"
-                placeholder="Digite a descrição"
-              ></textarea>
-            </div>
-
-            <div class="d-flex gap-2">
-              <button type="submit" class="btn btn-success">Cadastrar</button>
-
-              <a href="/categorias" class="btn btn-secondary"> Cancelar </a>
-            </div>
-          </form>
-        </div>
+<div class="categoria-container">
+  <div class="categoria-card">
+    <!-- Cabeçalho -->
+    <div class="categoria-header">
+      <div class="categoria-icon">
+        <i class="bi bi-tags"></i>
       </div>
+
+      <div>
+        <h2>Nova Categoria</h2>
+        <p>Organize seus eletrônicos por categoria</p>
+      </div>
+    </div>
+
+    <!-- Formulário -->
+    <div class="categoria-body">
+      <form action="/categorias" method="POST">
+        <div class="form-group">
+          <label for="nome">
+            Nome da categoria
+            <span class="required">*</span>
+          </label>
+
+          <input
+            type="text"
+            class="categoria-input"
+            id="nome"
+            name="nome"
+            placeholder="Ex: Smartphones, Notebooks..."
+            required
+          />
+
+          <small>Informe um nome claro e fácil de identificar.</small>
+        </div>
+
+        <div class="form-group">
+          <label for="descricao"> Descrição </label>
+
+          <textarea
+            class="categoria-input categoria-textarea"
+            id="descricao"
+            name="descricao"
+            rows="4"
+            placeholder="Descreva brevemente essa categoria..."
+          ></textarea>
+
+          <small>Campo opcional para informações adicionais.</small>
+        </div>
+
+        <!-- Botões -->
+        <div class="categoria-actions">
+          <a href="/categorias" class="btn-cancelar">
+            <i class="bi bi-arrow-left"></i>
+            Cancelar
+          </a>
+
+          <button type="submit" class="btn-cadastrar">
+            <i class="bi bi-plus-lg"></i>
+            Cadastrar categoria
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>
-<% if (erro) { %>
-    <script>
-        alert("<%= erro %>");
-    </script>
-<% } %>
 
 <%- include("../partials/footer") %>

@@ -1,55 +1,63 @@
 <%- include("../partials/header") %>
 <%- include("../partials/nav") %>
+<link rel="stylesheet" href="/css/indexFornecedor.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 
-<div class="container mt-5">
-    <div class="d-flex justify-content-between
-                align-items-center mb-4">
-
-        <div>
-
-            <h1>Fornecedores</h1>
-
-            <p class="text-muted">
-                Lista dos fornecedores cadastrados
-            </p>
-
-        </div>
-
-        <a href="fornecedores/cadastro" class="btn btn-primary">
-
-            + Novo Fornecedor
-        </a>
+<main class="fornecedores-container">
+  <div class="fornecedores-topo">
+    <div class="fornecedores-titulo">
+      <div class="fornecedores-icon"><i class="bi bi-truck"></i></div>
+      <div>
+        <h2>Fornecedores</h2>
+        <p>Lista de fornecedores cadastrados</p>
+      </div>
     </div>
-    <div class="card shadow-sm">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-hover
-                              align-middle">
+    <a href="/fornecedores/cadastro" class="btn-nova-fornecedor">
+      <i class="bi bi-plus-lg"></i> Novo Fornecedor
+    </a>
+  </div>
 
-                    <thead class="table-dark">
-                        <tr>
-                            <th>ID</th>
-                            <th>CNPJ</th>
-                            <th>Email</th>
-                            <th>Opções</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <% fornecedores.forEach(mostrar => { %>
-                        <tr>
-                            <td><%= mostrar.id %></td>
-                            <td><%= mostrar.cnpj %></td>
-                            <td><%= mostrar.email %></td>
-                            <td>
-                                <a class="btn btn-warning btn-sm" href="/fornecedores/editar/<%= mostrar.id %>" onclick="return confirm('Deseja editar este fornecedor?')">Editar</a>
-                                <a class="btn btn-danger btn-sm" href="/fornecedores/excluir/<%= mostrar.id %>" onclick="return confirm('Deseja excluir este fornecedor?')">Excluir</a>
-                            </td>
-                        </tr>
-                        <% }) %>
-                    </tbody>
-                </table>
-            </div>
-        </div>
+  <section class="fornecedores-card">
+    <header class="fornecedores-card-header">
+      <div>
+        <h5>Fornecedores cadastrados</h5>
+        <p>Visualize e gerencie os registros do sistema</p>
+      </div>
+      <span class="fornecedores-badge"><i class="bi bi-truck"></i> <%= fornecedores.length %> cadastrados</span>
+    </header>
+
+    <% if (fornecedores.length > 0) { %>
+    <div class="fornecedores-table-container">
+      <table class="fornecedores-table">
+        <thead><tr><th class="col-id">ID</th><th>CNPJ</th><th>Email</th><th class="col-acoes">Opções</th></tr></thead>
+        <tbody>
+          <% fornecedores.forEach(mostrar => { %>
+          <tr>
+            <td><span class="fornecedor-id"><%= mostrar.id %></span></td>
+            <td><span class="fornecedor-nome"><span class="fornecedor-nome-icon"><i class="bi bi-building"></i></span><%= mostrar.cnpj %></span></td>
+            <td><span class="fornecedor-descricao"><%= mostrar.email %></span></td>
+            <td>
+              <div class="fornecedor-opcoes">
+                <a class="btn-editar" href="/fornecedores/editar/<%= mostrar.id %>" onclick="return confirm('Deseja editar este fornecedor?')"><i class="bi bi-pencil-square"></i> Editar</a>
+                <a class="btn-excluir" href="/fornecedores/excluir/<%= mostrar.id %>" onclick="return confirm('Deseja excluir este fornecedor?')"><i class="bi bi-trash"></i> Excluir</a>
+              </div>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
     </div>
-</div>
+    <% } else { %>
+    <div class="fornecedores-vazio">
+      <i class="bi bi-truck"></i>
+      <h5>Nenhum fornecedor cadastrado</h5>
+      <p>Cadastre um novo fornecedor para começar a organizar os registros.</p>
+      <a href="/fornecedores/cadastro" class="btn-nova-fornecedor"><i class="bi bi-plus-lg"></i> Novo Fornecedor</a>
+    </div>
+    <% } %>
+
+    <footer class="fornecedores-card-footer"><i class="bi bi-info-circle"></i> Fornecedores registrados no sistema</footer>
+  </section>
+</main>
+
 <%- include("../partials/footer") %>

@@ -28,6 +28,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
+app.use('/css', express.static(path.join(__dirname, 'css')));
+
 // ========================================
 // ROTAS
 // ========================================

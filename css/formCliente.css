@@ -1,0 +1,176 @@
+.cliente-container {
+    min-height: 80vh;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: #f4f6f8;
+}
+
+.cliente-card {
+    width: 100%;
+    max-width: 650px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+}
+
+.cliente-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 28px 32px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.cliente-icon {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #eaf2ff;
+    color: #2563eb;
+    border-radius: 12px;
+    font-size: 24px;
+}
+
+.cliente-header h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.cliente-header p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.cliente-body {
+    padding: 32px;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.required {
+    color: #dc3545;
+}
+
+.cliente-input {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #1f2937;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.cliente-input::placeholder {
+    color: #9ca3af;
+}
+
+.cliente-input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.cliente-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+.cliente-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding-top: 24px;
+    border-top: 1px solid #eeeeee;
+}
+
+.btn-cancelar,
+.btn-cadastrar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: 9px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-cancelar {
+    color: #4b5563;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+}
+
+.btn-cancelar:hover {
+    background: #f3f4f6;
+    color: #1f2937;
+}
+
+.btn-cadastrar {
+    color: #ffffff;
+    background: #2563eb;
+    border: 1px solid #2563eb;
+}
+
+.btn-cadastrar:hover {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+@media (max-width: 576px) {
+
+    .cliente-container {
+        padding: 25px 12px;
+    }
+
+    .cliente-header {
+        padding: 22px;
+    }
+
+    .cliente-body {
+        padding: 22px;
+    }
+
+    .cliente-actions {
+        flex-direction: column-reverse;
+    }
+
+    .btn-cancelar,
+    .btn-cadastrar {
+        width: 100%;
+    }
+
+}
